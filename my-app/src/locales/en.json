@@ -1,9 +1,4 @@
 {
-  "action-add": "Add",
-  "action-delete": "Delete",
-  "action-update": "Update",
-  "action-import": "Import",
-  "action-export": "Export",
-  
-  "operator-list-title": "Drivers"
-}
+    "welcome": "Welcome",
+    "language": "en"
+  }

@@ -1,17 +1,22 @@
-import { createApp } from 'vue'
+/**
+ * main.js
+ *
+ * Bootstraps Vuetify and other plugins then mounts the App`
+ */
+
+// Plugins
+import { registerPlugins } from '@/plugins'
+
+// Components
 import App from './App.vue'
-import i18n from './i18n'
 
-createApp(App).use(i18n).mount('#app')
+import i18n from './plugins/i18n'
 
-// import Vue from 'vue';
-// import App from './App.vue';
-// import i18n from './plugins/i18n';
+// Composables
+import { createApp } from 'vue'
 
-// Vue.config.productionTip = false;
+const app = createApp(App).use(i18n)
 
-// new Vue({
-//     i18n,
-//     render: h => h(App),
-// }).$mount('#app');
+registerPlugins(app)
 
+app.mount('#app')
