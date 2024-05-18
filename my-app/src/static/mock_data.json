@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "last_name": "Johnson",
+        "first_name": "John",
+        "email": "j.johnson@email.com",
+        "phone": "(805) 555-1111",
+        "phone_type": "mobile",
+        "assignment": "",
+        "activity": ""
+    },
+    {
+        "id": 2,
+        "last_name": "Dougson",
+        "first_name": "Doug",
+        "email": "d.dougson@email.com",
+        "phone": "(818) 777-5555",
+        "phone_type": "",
+        "assignment": "4",
+        "activity": ""
+    },
+    {
+        "id": 3,
+        "last_name": "Sarason",
+        "first_name": "Sarah",
+        "email": "s.sarason@email.com",
+        "phone": "(213) 444-3232",
+        "phone_type": "fixed",
+        "assignment": "",
+        "activity": ""
+    },
+    {
+        "id": 4,
+        "last_name": "Timson",
+        "first_name": "Tim",
+        "email": "timmy@email.com",
+        "phone": "(805) 555-1111",
+        "phone_type": "mobile",
+        "assignment": "1",
+        "activity": ""
+    },
+    {
+        "id": 5,
+        "last_name": "Juanez",
+        "first_name": "Juan",
+        "email": "jjuanez@email.mx",
+        "phone": "+52 22 8888-5555",
+        "phone_type": "",
+        "assignment": "1",
+        "activity": ""
+    }
+]

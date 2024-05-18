@@ -1,4 +1,31 @@
 {
-    "welcome": "Welcome",
-    "language": "en"
-  }
+  "action-add": "Add",
+  "action-delete": "Delete",
+  "action-update": "Update",
+  "action-import": "Import",
+  "action-export": "Export",
+  
+  "driver_list-title": "Driver Assignments",
+
+  "driver_list-loading": "Loading drivers & assignments...",
+  "driver_list-loading-error": "Error loading drivers...",
+  "driver_list-nothing-to-display": "No drivers to display",
+
+  "driver_list-items-per-page": "Drivers per page",
+
+
+  "driver_list-thead_id": "",
+  "driver_list-thead_fname": "Last Name",
+  "driver_list-thead_tname": "First Name",
+  "driver_list-thead_email": "Email",
+  "driver_list-thead_phone": "Phone",
+  "driver_list-thead_ptype": "Phone Type",
+  "driver_list-thead_assigned": "Assigned",
+  "driver_list-thead_activity": "Activity",
+
+  "driver_list-phone_type_unknown": "unknown",
+  "driver_list-driver_unassigned": "unassigned"
+
+
+
+}
