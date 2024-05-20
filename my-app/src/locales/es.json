@@ -1,3 +1,21 @@
 {
+    "action-add": "Agregar",
+    "action-delete": "Borrar",
+    "action-update": "Actualizar",
+    "action-import": "Importar",
+    "action-export": "Exportar",
+    "action-close": "Cerrar",
+    "action-search": "Buscar",
 
+    "action-switch_lang": "Cambiar Idioma",
+    "action-lang_en": "Inglés",
+    "action-lang_es": "Español",
+    "action-lang_fr": "Francés",
+
+    "tooltip-export-msg": "No disponible",
+  
+    "assignments-tab-one": "Conductores",
+    "assignments-tab-two": "Vehículos",
+  
+    "driver_list-title": "Asignaciones de Conductores"
 }

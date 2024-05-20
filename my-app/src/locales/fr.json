@@ -1,3 +1,21 @@
 {
+    "action-add": "Ajouter",
+    "action-delete": "Effacer",
+    "action-update": "Réviser",
+    "action-import": "Importer",
+    "action-export": "Exporter",
+    "action-close": "Fermer",
+    "action-search": "Recherche",
 
+    "action-switch_lang": "Changer de Langue",
+    "action-lang_en": "Anglais",
+    "action-lang_es": "Espagnol",
+    "action-lang_fr": "Français",
+
+    "tooltip-export-msg": "Pas disponible",
+  
+    "assignments-tab-one": "Conducteurs",
+    "assignments-tab-two": "Véhicules",
+  
+    "driver_list-title": "Affectations des Chauffeurs"
 }

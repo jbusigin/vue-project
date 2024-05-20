@@ -8,9 +8,7 @@
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 
-// Composables
-import { createVuetify } from 'vuetify'
-
+// Themes
 const modifiedLightTheme = {
   dark: false,
   colors: {
@@ -49,12 +47,24 @@ const modifiedLightTheme = {
   }
 }
 
-// https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
+// Composables
+import { createVuetify } from 'vuetify'
+
+// Translations provided by Vuetify
+import { en, es, fr } from 'vuetify/locale'
+import t_en from '@/locales/en' // translation file
+
+
 export default createVuetify({
   theme: {
     defaultTheme: 'modifiedLightTheme',
     themes: {
       modifiedLightTheme
     }
+  },
+  locale: {
+    locale: 'en',
+    fallback: 't_en',
+    messages: { en, es, fr },
   },
 })

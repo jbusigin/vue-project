@@ -3,25 +3,39 @@
   <div v-if="error">{{ $t('driver_list-loading-error') }}</div>
   <div v-else-if="loading">{{ $t('driver_list-loading') }}</div>
 
-  <v-card :title="$t('driver_list-title')" flat>
+  <v-card flat>
 
-    <template v-slot:text>
-      <DriverAdd />
-      <v-btn @click="loadDrivers" size="small">
-        {{ $t('action-import') }}
-      </v-btn>
+    <template v-slot:title>
 
-      <v-btn size="small" :disabled="!driversAvailable">
-        {{ $t('action-export') }}
-        <v-tooltip
-          activator="parent"
-          location="top"
-          >{{ $t('tooltip-export-msg') }}</v-tooltip>
-      </v-btn>
+      <v-row>
+        <v-col>
+          {{ $t('driver_list-title') }}
+        </v-col>
+        <v-spacer />
+        <v-col align="right">
+
+          <v-toolbar density="compact" class="utility-bar">
+            <DriverAdd />
+            <v-btn @click="loadDrivers" size="small">
+              {{ $t('action-import') }}
+            </v-btn>
+            <v-btn size="small" :disabled="!driversAvailable">
+              {{ $t('action-export') }}
+              <v-tooltip
+                activator="parent"
+                location="top"
+                >{{ $t('tooltip-export-msg') }}</v-tooltip>
+            </v-btn>
+          </v-toolbar>
+
+        </v-col>
+      </v-row>
+
+
 
     </template>
 
-    <div v-if="!driversAvailable">
+    <div v-if="!driversAvailable" class="no-drivers-msg">
       {{ $t('driver_list-nothing-to-display') }}
     </div>
 
@@ -38,7 +52,7 @@
         <template v-slot:top>
           <v-text-field
           v-model="search"
-          label="Search"
+          :label="$t('action-search')"
           prepend-inner-icon="mdi-magnify"
           variant="outlined"
           hide-details
@@ -98,12 +112,12 @@
 <script setup>
   // Pinia is using the Composition API
   import { storeToRefs } from 'pinia'
-  import { useDriverStore } from '../stores/drivers'
+  import { useDriverStore } from '@/stores/drivers'
   const { drivers, loading, error, driversAvailable } = storeToRefs(useDriverStore())
   const { loadDrivers, addDriver, removeDriver } = useDriverStore()
 </script>
 <script>
-  import DriverDetails from './DriverDetails.vue'
+  import DriverDetails from '@/components/DriverDetails.vue'
 
   export default {
     name: 'DriverList',
@@ -138,11 +152,25 @@
     }
   }
 </script>
+
 <style lang="scss" scoped>
+
+  .utility-bar {
+    width: auto;
+    display: inline-block;
+  }
+
+  .no-drivers-msg {
+    text-align: center;
+    color: #ccc;
+  }
+
+
   #driver-list-table {
     &:deep(table tr:nth-of-type(odd) td) {
       background-color: rgba(0, 0, 0, .02);
     }
+
   }
 </style>
   

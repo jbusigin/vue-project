@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import mockData from '../static/mock_data.json'
+import mockData from '@/static/mock_data.json'
 
 export const useDriverStore = defineStore({
     id: 'drivers',
@@ -14,8 +14,9 @@ export const useDriverStore = defineStore({
     actions: {
         addDriver(newData) {
             if(Object.keys(newData).length){
+                const guid = Math.floor(Math.random() * 1000000000); // simple "guid" for demo
                 this.drivers.push({
-                    "id": Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15), // quick guid
+                    "id": guid,
                     "first_name": newData.first_name,
                     "last_name": newData.last_name,
                     "email": newData.email,

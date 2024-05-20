@@ -6,17 +6,16 @@
     >
       <template v-slot:activator="{ props: activatorProps }">
         <v-btn
-          class="text-none font-weight-regular"
           prepend-icon="mdi-account"
-          text="Edit Profile"
-          variant="tonal"
+          :text="$t('action-add')"
           v-bind="activatorProps"
+          size="small"
         ></v-btn>
       </template>
 
       <v-card
         prepend-icon="mdi-account"
-        title="User Profile"
+        :title="$t('driver_add_dialog-title')"
       >
         <v-card-text>
           <v-row dense>

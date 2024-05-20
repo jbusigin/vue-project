@@ -4,6 +4,13 @@
   "action-update": "Update",
   "action-import": "Import",
   "action-export": "Export",
+  "action-close": "Close",
+  "action-search": "Search",
+  
+  "action-switch_lang": "Switch Language",
+  "action-lang_en": "English",
+  "action-lang_es": "Spanish",
+  "action-lang_fr": "French",
 
   "tooltip-export-msg": "Not available",
   
@@ -11,6 +18,7 @@
   "assignments-tab-two": "Vehicles",
 
   "driver_list-title": "Driver Assignments",
+
   "driver_list-loading": "Loading drivers & assignments...",
   "driver_list-loading-error": "Error loading drivers...",
   "driver_list-nothing-to-display": "No drivers to display",
@@ -31,6 +39,8 @@
   "driver_details-label_email": "Email",
   "driver_details-label_phone": "Phone",
   "driver_details-label_ptype": "Phone Type",
-  "driver_details-label_assigned": "Assigned"
+  "driver_details-label_assigned": "Assigned",
+
+  "driver_add_dialog-title": "Add Driver"
 
 }
