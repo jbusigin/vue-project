@@ -4,28 +4,33 @@
   "action-update": "Update",
   "action-import": "Import",
   "action-export": "Export",
-  
-  "driver_list-title": "Driver Assignments",
 
+  "tooltip-export-msg": "Not available",
+  
+  "assignments-tab-one": "Drivers",
+  "assignments-tab-two": "Vehicles",
+
+  "driver_list-title": "Driver Assignments",
   "driver_list-loading": "Loading drivers & assignments...",
   "driver_list-loading-error": "Error loading drivers...",
   "driver_list-nothing-to-display": "No drivers to display",
-
   "driver_list-items-per-page": "Drivers per page",
-
-
   "driver_list-thead_id": "",
-  "driver_list-thead_fname": "Last Name",
-  "driver_list-thead_tname": "First Name",
+  "driver_list-thead_lname": "Last Name",
+  "driver_list-thead_fname": "First Name",
   "driver_list-thead_email": "Email",
   "driver_list-thead_phone": "Phone",
   "driver_list-thead_ptype": "Phone Type",
   "driver_list-thead_assigned": "Assigned",
   "driver_list-thead_activity": "Activity",
-
   "driver_list-phone_type_unknown": "unknown",
-  "driver_list-driver_unassigned": "unassigned"
+  "driver_list-driver_unassigned": "unassigned",
 
-
+  "driver_details-label_lname": "Last Name",
+  "driver_details-label_fname": "First Name",
+  "driver_details-label_email": "Email",
+  "driver_details-label_phone": "Phone",
+  "driver_details-label_ptype": "Phone Type",
+  "driver_details-label_assigned": "Assigned"
 
 }

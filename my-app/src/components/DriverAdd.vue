@@ -19,20 +19,16 @@
         title="User Profile"
       >
         <v-card-text>
-
-          <v-form>
-
-            <v-row dense>
+          <v-row dense>
             <v-col
               cols="12"
               md="4"
               sm="6"
             >
               <v-text-field
-                :label="$t('driver_details-label_fname') + '*'"
-                v-model="first_name"
+                label="First name*"
                 required
-                ></v-text-field>
+              ></v-text-field>
             </v-col>
 
             <v-col
@@ -53,11 +49,10 @@
             >
               <v-text-field
                 hint="example of persistent helper text"
-                :label="$t('driver_details-label_lname') + '*'"
-                v-model="last_name"
+                label="Last name*"
                 persistent-hint
                 required
-                ></v-text-field>
+              ></v-text-field>
             </v-col>
 
             <v-col
@@ -66,8 +61,8 @@
               sm="6"
             >
               <v-text-field
-              :label="$t('driver_details-label_email')"
-              v-model="email"
+                label="Email*"
+                required
               ></v-text-field>
             </v-col>
 
@@ -117,15 +112,9 @@
                 multiple
               ></v-autocomplete>
             </v-col>
-            </v-row>
-
-          </v-form>
-
-
+          </v-row>
 
           <small class="text-caption text-medium-emphasis">*indicates required field</small>
-        
-        
         </v-card-text>
 
         <v-divider></v-divider>
@@ -136,14 +125,14 @@
           <v-btn
             text="Close"
             variant="plain"
-            @click="resetModel(); dialog = false"
+            @click="dialog = false"
           ></v-btn>
 
           <v-btn
             color="primary"
             text="Save"
             variant="tonal"
-            @click="updateDriver(getUpdate); dialog = false"
+            @click="dialog = false"
           ></v-btn>
         </v-card-actions>
       </v-card>
@@ -152,41 +141,29 @@
 </template>
   
 
-<script setup>
-  import { useDriverStore } from '../stores/drivers'
-  const { updateDriver } = useDriverStore()
-</script>
+
+
 <script>
   export default {
-    props: {
-      driverData: {}
-    },
-    data () {
-      return {
-        dialog: false,
-        first_name: this.driverData.first_name,
-        last_name: this.driverData.last_name,
-        email: this.driverData.email,
-      }
-    },
-    computed: {
-      getUpdate() {
-        return {
-          "id": this.driverData.id,
-          "first_name": this.first_name,
-          "last_name": this.last_name,
-          "email": this.email,
-        }
-      }
-    },
-    methods: {
-      resetModel() {
-        this.first_name = this.driverData.first_name;
-        this.last_name = this.driverData.last_name;
-        this.email =this.driverData.email;
-      }
-    }
+    data: () => ({
+      dialog: false,
+    }),
   }
+
+
+  // import { useOperatorComposable } from "./_Composable";
+
+  // export default {
+  //   name: 'OperatorList',
+  //   props: {
+  //   },
+
+
+  //   setup() {
+  //     const { data, addData, deleteDataByIndex } = useOperatorComposable();
+  //     return { data, addData, deleteDataByIndex };
+  //   }
+  // }
 </script>
 
 <style lang="scss" scoped>
