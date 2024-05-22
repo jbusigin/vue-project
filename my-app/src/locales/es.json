@@ -16,6 +16,12 @@
   "action-lang_es": "Español",
   "action-lang_fr": "Francés",
   
+  "validation-name_required": "Se requiere el nombre",
+  "validation-phone_required": "Se requiere teléfono",
+  "validation-email_required": "Correo electronico es requerido",
+  "validation-name_length": "Debe tener 3 caracteres o más",
+  "validation-email_format": "El correo electrónico debe tener un formato válido",
+
   "tooltip-export-msg": "No disponible",
   
   "assignments-tab-one": "Conductores",
@@ -26,7 +32,7 @@
 
   "driver_list-loading": "Cargando controladores y asignaciones...",
   "driver_list-loading-error": "Error al cargar controladores...",
-  "driver_list-nothing-to-display": "No hay controladores para mostrar",
+  "driver_list-nothing-to-display": "<strong>Aún no hay controladores para mostrar.</strong> <br> Haga clic aquí para agregar o importar controladores y comenzar.",
 
   "driver_list-items-per-page": "Controladores por página",
 

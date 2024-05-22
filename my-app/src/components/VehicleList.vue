@@ -7,7 +7,7 @@
 
     <template v-slot:title>
       <v-row align="center">
-        <v-col>
+        <v-col class="page-title">
           {{ $t('vehicle_list-title') }}
         </v-col>
         <v-spacer />
@@ -26,7 +26,6 @@
       :headers="headers"
       :density="isMobile ? 'compact' : 'default'"
       :hide-default-footer="vehicles.length < 10"
-      :items-per-page-text="$t('vehicle_list-items-per-page')"
       loading-text="{{ $t('vehicle_list-loading') }}"
       :fixed-header="true"
       :mobile="isMobile"
@@ -44,7 +43,6 @@
 <script>
   export default {
     name: 'VehicleList',
-    data () {},
     computed: {
       headers (vm) {
         // Headers are computed to allow for translations

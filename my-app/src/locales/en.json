@@ -16,6 +16,12 @@
   "action-lang_es": "Spanish",
   "action-lang_fr": "French",
 
+  "validation-name_required": "Name is required",
+  "validation-phone_required": "Phone is required",
+  "validation-email_required": "Email is required",
+  "validation-name_length": "Must be 3 characters or more",
+  "validation-email_format": "Email must be a valid format",
+
   "tooltip-export-msg": "Not available",
   
   "assignments-tab-one": "Drivers",
@@ -26,7 +32,7 @@
 
   "driver_list-loading": "Loading drivers & assignments...",
   "driver_list-loading-error": "Error loading drivers...",
-  "driver_list-nothing-to-display": "No drivers to display",
+  "driver_list-nothing-to-display": "<strong>No drivers to display yet.</strong> <br> Click here to add or import drivers to get started.",
 
   "driver_list-items-per-page": "Drivers per page",
   

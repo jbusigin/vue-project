@@ -7,7 +7,7 @@
 
     <template v-slot:title>
       <v-row align="center">
-        <v-col>
+        <v-col class="page-title">
           {{ $t('location_list-title') }}
         </v-col>
         <v-spacer />
@@ -26,11 +26,15 @@
       :headers="headers"
       :density="isMobile ? 'compact' : 'default'"
       :hide-default-footer="locations.length < 10"
-      :items-per-page-text="$t('location_list-items-per-page')"
       loading-text="{{ $t('location_list-loading') }}"
       :fixed-header="true"
       :mobile="isMobile"
     >
+
+    <template v-slot:item.location="{ item }">
+      {{ item.city }}, {{ item.state }}
+    </template>
+
     </v-data-table>
   </v-card>
 </template>
@@ -44,7 +48,6 @@
 <script>
   export default {
     name: 'LocationList',
-    data () {},
     computed: {
       headers (vm) {
         // Headers are computed to allow for translations

@@ -14,120 +14,112 @@
       ></v-btn>
     </template>
 
-
-
+    <v-form ref="form" lazy-validation v-model="valid">
       <v-card
         prepend-icon="mdi-account"
-        title="User Profile"
+        :title="$t('driver_add_dialog-title')"
       >
         <v-card-text>
 
-          <v-form>
-
+          <fieldset>
+            <legend>{{ $t('driver_add_section-driver') }}</legend>
             <v-row dense>
-            <v-col
-              cols="12"
-              md="4"
-              sm="6"
-            >
-              <v-text-field
-                :label="$t('driver_details-label_fname') + '*'"
-                v-model="first_name"
-                required
+              <v-col cols="12" md="6" sm="6">
+
+                <v-text-field
+                  :label="$t('driver_add-field_fname') +'*'"
+                  variant="outlined"
+                  v-model="fieldData.first_name"
+                  :rules="nameValidation"
+                  :density="isMobile ? 'compact' : 'default'"
                 ></v-text-field>
-            </v-col>
 
-            <v-col
-              cols="12"
-              md="4"
-              sm="6"
-            >
-              <v-text-field
-                hint="example of helper text only on focus"
-                label="Middle name"
-              ></v-text-field>
-            </v-col>
+              </v-col>
+              <v-col cols="12" md="6" sm="6">
 
-            <v-col
-              cols="12"
-              md="4"
-              sm="6"
-            >
-              <v-text-field
-                hint="example of persistent helper text"
-                :label="$t('driver_details-label_lname') + '*'"
-                v-model="last_name"
-                persistent-hint
-                required
+                <v-text-field
+                  :label="$t('driver_add-field_lname') +'*'"
+                  required
+                  variant="outlined"
+                  v-model="fieldData.last_name"
+                  :rules="nameValidation"
+                  :density="isMobile ? 'compact' : 'default'"
                 ></v-text-field>
-            </v-col>
 
-            <v-col
-              cols="12"
-              md="4"
-              sm="6"
-            >
-              <v-text-field
-              :label="$t('driver_details-label_email')"
-              v-model="email"
-              ></v-text-field>
-            </v-col>
+              </v-col>
+              <v-col cols="12" md="6" sm="6">
 
-            <v-col
-              cols="12"
-              md="4"
-              sm="6"
-            >
-              <v-text-field
-                label="Password*"
-                type="password"
-                required
-              ></v-text-field>
-            </v-col>
+                <v-text-field
+                  :label="$t('driver_add-field_phone') +'*'"
+                  required
+                  variant="outlined"
+                  v-model="fieldData.phone"
+                  :rules="phoneValidation"
+                  :density="isMobile ? 'compact' : 'default'"
+                ></v-text-field>
 
-            <v-col
-              cols="12"
-              md="4"
-              sm="6"
-            >
-              <v-text-field
-                label="Confirm Password*"
-                type="password"
-                required
-              ></v-text-field>
-            </v-col>
+              </v-col>
+              <v-col cols="12" md="6" sm="6">
 
-            <v-col
-              cols="12"
-              sm="6"
-            >
-              <v-select
-                :items="['0-17', '18-29', '30-54', '54+']"
-                label="Age*"
-                required
-              ></v-select>
-            </v-col>
+                <v-text-field
+                  :label="$t('driver_add-field_email') +'*'"
+                  required
+                  variant="outlined"
+                  v-model="fieldData.email"
+                  :rules="emailValidation"
+                  :density="isMobile ? 'compact' : 'default'"
+                ></v-text-field>
 
-            <v-col
-              cols="12"
-              sm="6"
-            >
-              <v-autocomplete
-                :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
-                label="Interests"
-                auto-select-first
-                multiple
-              ></v-autocomplete>
-            </v-col>
+              </v-col>
+              <v-col cols="12" md="12" sm="12">
+
+                <v-radio-group
+                  :label="$t('driver_add-field_prefered_contact')"
+                  v-model="fieldData.prefer_contact"
+                  inline
+                  :density="isMobile ? 'compact' : 'default'"
+                >
+                  <v-radio :label="$t('driver_add-field_phone')" value="phone"></v-radio>
+                  <v-radio :label="$t('driver_add-field_email')" value="email"></v-radio>
+                </v-radio-group>
+
+              </v-col>
             </v-row>
+          </fieldset>
 
-          </v-form>
+          <fieldset>
+            <legend>{{ $t('driver_add_section-assignments') }}</legend>
+            <v-row dense>
+              <v-col cols="12" sm="12">
 
+                <v-select
+                  :items="l_Store.getAllLocations"
+                  item-title="name"
+                  item-value="id"
+                  :label="$t('driver_add-field_location')"
+                  variant="outlined"
+                  v-model="defaultLocation"
+                  :density="isMobile ? 'compact' : 'default'"
+                ></v-select>
 
+              </v-col>
+              <v-col cols="12" sm="12">
 
-          <small class="text-caption text-medium-emphasis">*indicates required field</small>
-        
-        
+                <v-select
+                  :items="v_Store.getAllVehicles"
+                  item-title="name"
+                  item-value="id"
+                  :label="$t('driver_add-field_vehicle')"
+                  variant="outlined"
+                  v-model="defaultAssignment"
+                  :density="isMobile ? 'compact' : 'default'"
+                ></v-select>
+
+              </v-col>
+            </v-row>
+          </fieldset>
+
+          <small class="text-caption text-medium-emphasis">*{{ $t('driver_add-required_message') }}</small>
         </v-card-text>
 
         <v-divider></v-divider>
@@ -136,62 +128,129 @@
           <v-spacer></v-spacer>
 
           <v-btn
-            text="Close"
+            :text="$t('action-cancel')"
             variant="plain"
-            @click="resetModel(); dialog = false"
+            @click="dialog = false"
           ></v-btn>
 
           <v-btn
             color="primary"
-            text="Save"
+            :text="$t('action-save')"
             variant="tonal"
-            @click="updateDriver(getUpdate); dialog = false"
+            @click="submitForm"
           ></v-btn>
         </v-card-actions>
       </v-card>
-    </v-dialog>
+    </v-form>
+  </v-dialog>
 
 </template>
   
-
 <script setup>
-  import { useDriverStore } from '../stores/drivers'
-  const { updateDriver } = useDriverStore()
+  // Pinia is using the Composition API
+  import { storeToRefs } from 'pinia'
+  import { useVehicleStore } from '@/stores/vehicles'
+  import { useLocationStore } from '@/stores/locations'
+  const v_Store = useVehicleStore()
+  const l_Store = useLocationStore()
 </script>
 <script>
+  import { mapState, mapActions } from 'pinia'
+  import { useDriverStore } from '@/stores/drivers'
+  import { useVehicleStore } from '@/stores/vehicles'
+  import { useLocationStore } from '@/stores/locations'
+
   export default {
     props: {
       driverData: {}
     },
-    data () {
+    data (vm) {
       return {
         dialog: false,
-        first_name: this.driverData.first_name,
-        last_name: this.driverData.last_name,
-        email: this.driverData.email,
-      }
-    },
-    computed: {
-      getUpdate() {
-        return {
-          "id": this.driverData.id,
-          "first_name": this.first_name,
-          "last_name": this.last_name,
-          "email": this.email,
-        }
+        valid: false,
+        fieldData: {
+          id: this.driverData.id,
+          first_name: this.driverData.first_name,
+          last_name: this.driverData.last_name,
+          phone: this.driverData.phone,
+          email: this.driverData.email,
+          prefer_contact: 'phone',
+          location: this.driverData.location,
+          assignment: this.driverData.assignment,
+          activity: this.driverData.activity,
+        },
+        defaultAssignment: {
+          id: this.driverData.assignment,
+          name: this.getVehicleByID(this.driverData.assignment).name,
+        },
+        defaultLocation: {
+          id: this.driverData.location,
+          name: this.getLocationByID(this.driverData.location).name,
+        },
+        nameValidation: [
+          (v) => !!v || vm.$t('validation-name_required'),
+          (v) => v.length >= 3 || vm.$t('validation-name_length')
+        ],
+        phoneValidation: [
+          (v) => !!v || vm.$t('validation-phone_required')
+        ],
+        emailValidation: [
+          (v) => !!v || vm.$t('validation-email_required'),
+          (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || vm.$t('validation-email_format')
+        ],
       }
     },
     methods: {
+      ...mapActions(useDriverStore, ['updateDriver']),
+      ...mapActions(useVehicleStore, ['getVehicleByID']),
+      ...mapActions(useLocationStore, ['getLocationByID']),
+      async submitForm(){
+        const isVaild = await this.$refs.form.validate();
+        if(isVaild.valid){
+          await this.updateDriver(this.fieldData);
+          this.dialog = false;
+        }
+      },
       resetModel() {
-        this.first_name = this.driverData.first_name;
-        this.last_name = this.driverData.last_name;
-        this.email =this.driverData.email;
+        this.fieldData = {
+          id: this.driverData.id,
+          first_name: this.driverData.first_name,
+          last_name: this.driverData.last_name,
+          phone: this.driverData.phone,
+          email: this.driverData.email,
+          prefer_contact: 'phone',
+          location: this.driverData.location,
+          assignment: this.driverData.assignment,
+          activity: this.driverData.activity,
+        };
+      }
+    },
+    computed: {
+      isMobile (vm) {
+        return vm.$vuetify.display.smAndDown
+      }
+    },
+    watch: {
+      dialog(status) {
+        if (status) { // clear form on open
+          this.resetModel();
+        }
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  fieldset {
+    padding: 20px 20px 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 30px;
 
+    @media screen and (max-width: 959px) {
+      padding: 10px 10px 0px 10px;
+      margin-bottom: 20px
+    }
+  }
 </style>
   

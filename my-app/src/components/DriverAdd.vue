@@ -5,7 +5,12 @@
     max-width="600"
   >
     <template v-slot:activator="{ props: activatorProps }">
+      <div v-if="iconActivator" v-bind="activatorProps" class="add-message">
+        <v-icon icon="mdi-account-plus-outline"/>
+        <p v-html="$t('driver_list-nothing-to-display')"></p>
+      </div>
       <v-btn
+        v-else
         prepend-icon="mdi-account-plus"
         :stacked="$vuetify.display.smAndDown"
         :text="$t('action-add')"
@@ -14,6 +19,7 @@
       ></v-btn>
     </template>
 
+    <v-form ref="form" lazy-validation v-model="valid">
       <v-card
         prepend-icon="mdi-account"
         :title="$t('driver_add_dialog-title')"
@@ -27,7 +33,10 @@
 
                 <v-text-field
                   :label="$t('driver_add-field_fname') +'*'"
-                  required
+                  variant="outlined"
+                  v-model="fieldData.first_name"
+                  :rules="nameValidation"
+                  :density="isMobile ? 'compact' : 'default'"
                 ></v-text-field>
 
               </v-col>
@@ -36,31 +45,48 @@
                 <v-text-field
                   :label="$t('driver_add-field_lname') +'*'"
                   required
+                  variant="outlined"
+                  v-model="fieldData.last_name"
+                  :rules="nameValidation"
+                  :density="isMobile ? 'compact' : 'default'"
                 ></v-text-field>
 
               </v-col>
-              <v-col cols="12" md="4" sm="6">
+              <v-col cols="12" md="6" sm="6">
 
                 <v-text-field
                   :label="$t('driver_add-field_phone') +'*'"
                   required
+                  variant="outlined"
+                  v-model="fieldData.phone"
+                  :rules="phoneValidation"
+                  :density="isMobile ? 'compact' : 'default'"
                 ></v-text-field>
 
               </v-col>
-              <v-col cols="12" md="4" sm="6">
+              <v-col cols="12" md="6" sm="6">
 
                 <v-text-field
                   :label="$t('driver_add-field_email') +'*'"
                   required
+                  variant="outlined"
+                  v-model="fieldData.email"
+                  :rules="emailValidation"
+                  :density="isMobile ? 'compact' : 'default'"
                 ></v-text-field>
 
               </v-col>
-              <v-col cols="12" md="4" sm="6">
+              <v-col cols="12" md="6" sm="6">
 
-                <v-text-field
-                  :label="$t('driver_add-field_prefered_contact') +'*'"
-                  required
-                ></v-text-field>
+                <v-radio-group
+                  :label="$t('driver_add-field_prefered_contact')"
+                  v-model="fieldData.prefer_contact"
+                  inline
+                  :density="isMobile ? 'compact' : 'default'"
+                >
+                  <v-radio :label="$t('driver_add-field_phone')" value="phone"></v-radio>
+                  <v-radio :label="$t('driver_add-field_email')" value="email"></v-radio>
+                </v-radio-group>
 
               </v-col>
             </v-row>
@@ -76,6 +102,9 @@
                   item-title="name"
                   item-value="id"
                   :label="$t('driver_add-field_location')"
+                  variant="outlined"
+                  v-model="fieldData.location"
+                  :density="isMobile ? 'compact' : 'default'"
                 ></v-select>
 
               </v-col>
@@ -86,6 +115,9 @@
                   item-title="name"
                   item-value="id"
                   :label="$t('driver_add-field_vehicle')"
+                  variant="outlined"
+                  v-model="fieldData.assignment"
+                  :density="isMobile ? 'compact' : 'default'"
                 ></v-select>
 
               </v-col>
@@ -110,10 +142,11 @@
             color="primary"
             :text="$t('action-save')"
             variant="tonal"
-            @click="dialog = false"
+            @click="submitForm"
           ></v-btn>
         </v-card-actions>
       </v-card>
+    </v-form>
   </v-dialog>
 
 </template>
@@ -127,19 +160,102 @@
   const l_Store = useLocationStore()
 </script>
 <script>
+  import { mapState, mapActions } from 'pinia'
+  import { useDriverStore } from '@/stores/drivers'
+
   export default {
-    data: () => ({
-      dialog: false,
-    }),
+    props: {
+      iconActivator: false,
+    },
+    data (vm) {
+      return {
+        dialog: false,
+        valid: false,
+        fieldData: {
+          first_name: '',
+          last_name: '',
+          phone: '',
+          email: '',
+          prefer_contact: 'phone',
+          location: '',
+          assignment: '',
+        },
+        nameValidation: [
+          (v) => !!v || vm.$t('validation-name_required'),
+          (v) => v.length >= 3 || vm.$t('validation-name_length')
+        ],
+        phoneValidation: [
+          (v) => !!v || vm.$t('validation-phone_required')
+        ],
+        emailValidation: [
+          (v) => !!v || vm.$t('validation-email_required'),
+          (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || vm.$t('validation-email_format')
+        ],
+      }
+    },
+    methods: {
+      ...mapActions(useDriverStore, ['addDriver']),
+      async submitForm(){
+        const isVaild = await this.$refs.form.validate();
+        if(isVaild.valid){
+          await this.addDriver(this.fieldData);
+          this.dialog = false;
+        }
+      },
+      resetModel() {
+        this.fieldData = {
+          first_name: '',
+          last_name: '',
+          phone: '',
+          email: '',
+          prefer_contact: 'phone',
+          location: '',
+          assignment: '',
+        };
+      }
+    },
+    computed: {
+      isMobile (vm) {
+        return vm.$vuetify.display.smAndDown
+      }
+    },
+    watch: {
+      dialog(status) {
+        if (status) { // clear form on open
+          this.resetModel();
+        }
+      }
+    }
   }
 </script>
 
 <style lang="scss" scoped>
+
+  .add-message {
+    color: #bbb;
+    margin: 50px auto;
+    cursor: pointer;
+    font-size: 0.75rem;
+    &:deep(strong){
+      font-size: 1.1rem;
+    }
+    .v-icon {
+        font-size: 5rem;
+        position: relative;
+        left: -10px;
+    }
+  }
+
   fieldset {
-    padding: 10px 20px;
+    padding: 20px 20px 10px 20px;
     border-radius: 5px;
     border: 1px solid #ddd;
-    margin-bottom: 30px
+    margin-bottom: 30px;
+
+    @media screen and (max-width: 959px) {
+      padding: 10px 10px 0px 10px;
+      margin-bottom: 20px
+    }
   }
 </style>
   

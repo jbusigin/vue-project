@@ -7,11 +7,11 @@
 
     <template v-slot:title>
       <v-row align="center">
-        <v-col>
+        <v-col class="page-title pr-0">
           {{ $t('driver_list-title') }}
         </v-col>
         <v-spacer />
-        <v-col align="right">
+        <v-col align="right" class="pl-0">
 
           <v-toolbar
             density="compact"
@@ -47,7 +47,7 @@
     </template>
 
     <div v-if="!driversAvailable" class="no-drivers-msg">
-      {{ $t('driver_list-nothing-to-display') }}
+      <DriverAdd iconActivator="true" />
     </div>
     <v-data-table
       v-else
@@ -56,7 +56,7 @@
       :headers="headers"
       :search="search"
       :density="isMobile ? 'compact' : 'default'"
-      :hide-default-footer="drivers.length < 10"
+      :hide-default-footer="drivers.length <= 10"
       :items-per-page-text="$t('driver_list-items-per-page')"
       loading-text="{{ $t('driver_list-loading') }}"
       v-model:expanded="expanded"
@@ -109,13 +109,15 @@
       </template>
 
       <template v-slot:item.assignment="{ item }">
-        {{ v_Store.getVehicleByID(item.assignment).name /* user data - not translated */ }}
-        <span class="small">{{ v_Store.getVehicleByID(item.assignment).type /* user data - not translated */ }}</span>
+        
+        {{ item.assignment ? v_Store.getVehicleByID(item.assignment).name : '--' /* user data - not translated */ }}
+        <span class="small">{{ item.assignment ? v_Store.getVehicleByID(item.assignment).type : '' /* user data - not translated */ }}</span>
+      
       </template>
 
       <template v-slot:item.location="{ item }">
-        {{ l_Store.getLocationByID(item.location).name /* user data - not translated */ }}
-        <span class="small">{{ l_Store.getLocationByID(item.location).type /* user data - not translated */ }}</span>
+        {{ item.location ? l_Store.getLocationByID(item.location).name : '--' /* user data - not translated */ }}
+        <span class="small">{{ item.location ? l_Store.getLocationByID(item.location).type : '' /* user data - not translated */ }}</span>
       </template>
 
       <template v-slot:item.activity="{ item }">
@@ -165,10 +167,6 @@
   const { loadDrivers, addDriver, removeDriver } = useDriverStore()
   const v_Store = useVehicleStore()
   const l_Store = useLocationStore()
-
-  console.error('Remove loadDrivers');
-  loadDrivers();
-
 </script>
 <script>
   import DriverDetails from '@/components/DriverDetails.vue'
@@ -225,7 +223,7 @@
     },
     components: {
       DriverDetails,
-      DriverAdd
+      DriverAdd,
     }
   }
 </script>
@@ -251,9 +249,7 @@
 
   .no-drivers-msg {
     text-align: center;
-    color: #ccc;
   }
-
 
   .driver-list-table {
     &:deep(tr:nth-of-type(odd) td) {
@@ -372,52 +368,24 @@
       &:deep(tr td span.email a) {
         font-size: 0.875rem;
       }
-
-
-
-
-  //     &:deep(thead) {
-  //       border: none;
-  //       clip: rect(0 0 0 0);
-  //       height: 1px;
-  //       margin: -1px;
-  //       overflow: hidden;
-  //       padding: 0;
-  //       position: absolute;
-  //       width: 1px;
-  //     }
-
-  //     &:deep(td) {
-  //       border-bottom: thin solid rgba(var(--v-border-color), var(--v-border-opacity));
-  //       display: block;
-  //       text-align: right;
-  //       line-height: 48px;
-  //     }
-
-  //     &:deep(td::before) {
-  //       content: attr(data-label);
-  //       float: left;
-  //       font-weight: bold;
-  //     }
-
-  //     &:deep(td:last-child) {
-  //       border-bottom: 0;
-  //     }
-
-  //     &:deep(tr:not(:first-child) > td:first-child) {
-  //       border-top: medium solid rgba(var(--v-border-color), var(--v-border-opacity));
-  //     }
-
     }
 
   }
 
+  @media screen and (max-width: 500px) {
+    .page-title {
+      font-size: 1.1rem;
+    }
 
-
-
-
-
-
+    .utility-bar {
+      padding: 0px;
+      min-width: 0;
+      &:deep(.v-btn) {
+        padding: 0 6px;
+        min-width: 50px;
+      }
+    }
+  }
 
 </style>
   
