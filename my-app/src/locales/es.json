@@ -1,21 +1,56 @@
 {
-    "action-add": "Agregar",
-    "action-delete": "Borrar",
-    "action-update": "Actualizar",
-    "action-import": "Importar",
-    "action-export": "Exportar",
-    "action-close": "Cerrar",
-    "action-search": "Buscar",
+  "action-add": "Agregar",
+  "action-delete": "Borrar",
+  "action-update": "Actualizar",
+  "action-import": "Importar",
+  "action-export": "Exportar",
+  "action-close": "Cerrar",
+  "action-search": "Buscar",
+  "action-edit": "Editar",
 
-    "action-switch_lang": "Cambiar Idioma",
-    "action-lang_en": "Inglés",
-    "action-lang_es": "Español",
-    "action-lang_fr": "Francés",
+  "action-switch_lang": "Cambiar Idioma",
+  "action-lang_en": "Inglés",
+  "action-lang_es": "Español",
+  "action-lang_fr": "Francés",
+  
+  "tooltip-export-msg": "No disponible",
+  
+  "assignments-tab-one": "Conductores",
+  "assignments-tab-two": "Vehículos",
+  
+  "driver_list-title": "Asignaciones de Conductores",
 
-    "tooltip-export-msg": "No disponible",
-  
-    "assignments-tab-one": "Conductores",
-    "assignments-tab-two": "Vehículos",
-  
-    "driver_list-title": "Asignaciones de Conductores"
+  "driver_list-loading": "Cargando controladores y asignaciones...",
+  "driver_list-loading-error": "Error al cargar controladores...",
+  "driver_list-nothing-to-display": "No hay controladores para mostrar",
+
+  "driver_list-items-per-page": "Controladores por página",
+
+  "driver_list-thead_id": "",
+  "driver_list-thead_fullname": "Nombre",
+  "driver_list-thead_lname": "Apellido",
+  "driver_list-thead_fname": "Nombre de pila",
+  "driver_list-thead_contact": "Contacto",
+  "driver_list-thead_pref_contact": "Preferir",
+  "driver_list-thead_email": "Correo electrónico",
+  "driver_list-thead_phone": "Teléfono",
+  "driver_list-thead_ptype": "Teléfono",
+  "driver_list-thead_assigned": "Asignado",
+  "driver_list-thead_activity": "Actividad",
+  "driver_list-phone_type_unknown": "desconocido",
+  "driver_list-driver_unassigned": "no asignado",
+
+  "driver_details-label_lname": "Apellido",
+  "driver_details-label_fname": "Nombre de pila",
+  "driver_details-label_email": "Correo electrónico",
+  "driver_details-label_phone": "Teléfono",
+  "driver_details-label_ptype": "Teléfono",
+  "driver_details-label_assigned": "Asignado",
+
+  "driver_add_dialog-title": "Agregar Controlador",
+
+  "vehicle_list-title": "Vehículos disponibles",
+  "vehicles_list-thead_name": "Nombre",
+  "vehicles_list-thead_type": "Tipo",
+  "vehicles_list-thead_manufacturer": "Fabricante"
 }

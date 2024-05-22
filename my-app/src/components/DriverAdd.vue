@@ -6,10 +6,11 @@
     >
       <template v-slot:activator="{ props: activatorProps }">
         <v-btn
-          prepend-icon="mdi-account"
+          prepend-icon="mdi-account-plus"
+          :stacked="$vuetify.display.smAndDown"
           :text="$t('action-add')"
           v-bind="activatorProps"
-          size="small"
+          :size="$vuetify.display.smAndDown ? 'x-small' : 'small'"
         ></v-btn>
       </template>
 

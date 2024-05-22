@@ -5,9 +5,9 @@
         "first_name": "John",
         "email": "j.johnson@email.com",
         "phone": "(805) 555-1111",
-        "phone_type": "mobile",
-        "assignment": "",
-        "activity": ""
+        "prefer_contact": "email",
+        "assignment": "2",
+        "activity": [1, 2, 1, 4, 0, 3, 3, 9, 6, 0]
     },
     {
         "id": "826020353",
@@ -15,9 +15,9 @@
         "first_name": "Doug",
         "email": "d.dougson@email.com",
         "phone": "(818) 777-5555",
-        "phone_type": "",
+        "prefer_contact": "phone",
         "assignment": "4",
-        "activity": ""
+        "activity": [3, 10, 7, 8, 0, 10, 0, 2, 8, 2]
     },
     {
         "id": "668549499",
@@ -25,9 +25,9 @@
         "first_name": "Sarah",
         "email": "s.sarason@email.com",
         "phone": "(213) 444-3232",
-        "phone_type": "fixed",
-        "assignment": "",
-        "activity": ""
+        "prefer_contact": "phone",
+        "assignment": "6",
+        "activity": [0, 1, 2, 2, 3, 1, 0, 0, 0, 0]
     },
     {
         "id": "184190314",
@@ -35,9 +35,9 @@
         "first_name": "Tim",
         "email": "timmy@email.com",
         "phone": "(805) 555-1111",
-        "phone_type": "mobile",
+        "prefer_contact": "email",
         "assignment": "1",
-        "activity": ""
+        "activity": [2, 3, 2, 8, 1, 5, 8, 0, 0, 10]
     },
     {
         "id": "206498824",
@@ -45,8 +45,8 @@
         "first_name": "Juan",
         "email": "jjuanez@email.mx",
         "phone": "+52 22 8888-5555",
-        "phone_type": "",
-        "assignment": "1",
-        "activity": ""
+        "prefer_contact": "phone",
+        "assignment": "5",
+        "activity": [4, 5, 2, 5, 5, 7, 8, 0, 7, 0]
     }
 ]

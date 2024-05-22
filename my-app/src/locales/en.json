@@ -6,6 +6,7 @@
   "action-export": "Export",
   "action-close": "Close",
   "action-search": "Search",
+  "action-edit": "Edit",
   
   "action-switch_lang": "Switch Language",
   "action-lang_en": "English",
@@ -22,10 +23,15 @@
   "driver_list-loading": "Loading drivers & assignments...",
   "driver_list-loading-error": "Error loading drivers...",
   "driver_list-nothing-to-display": "No drivers to display",
+
   "driver_list-items-per-page": "Drivers per page",
+  
   "driver_list-thead_id": "",
+  "driver_list-thead_fullname": "Name",
   "driver_list-thead_lname": "Last Name",
   "driver_list-thead_fname": "First Name",
+  "driver_list-thead_contact": "Contact",
+  "driver_list-thead_pref_contact": "Prefer",
   "driver_list-thead_email": "Email",
   "driver_list-thead_phone": "Phone",
   "driver_list-thead_ptype": "Phone Type",
@@ -41,6 +47,10 @@
   "driver_details-label_ptype": "Phone Type",
   "driver_details-label_assigned": "Assigned",
 
-  "driver_add_dialog-title": "Add Driver"
+  "driver_add_dialog-title": "Add Driver",
 
+  "vehicle_list-title": "Vehicles Available",
+  "vehicles_list-thead_name": "Name",
+  "vehicles_list-thead_type": "Type",
+  "vehicles_list-thead_manufacturer": "Manufacturer"
 }

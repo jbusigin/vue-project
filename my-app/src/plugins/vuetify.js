@@ -12,13 +12,13 @@ import 'vuetify/styles'
 const modifiedLightTheme = {
   dark: false,
   colors: {
-    background: '#FFFFFF',
+    background: '#f7f7f7', // original : #fff
     surface: '#FFFFFF',
     'surface-bright': '#FFFFFF',
     'surface-light': '#EEEEEE',
     'surface-variant': '#424242',
     'on-surface-variant': '#EEEEEE',
-    primary: '#ccc', //original: #1867C0
+    primary: '#116ab6', // original: #1867C0
     'primary-darken-1': '#1F5592',
     secondary: '#48A9A6',
     'secondary-darken-1': '#018786',
@@ -26,6 +26,15 @@ const modifiedLightTheme = {
     info: '#2196F3',
     success: '#4CAF50',
     warning: '#FB8C00',
+    anchor: '#074c92',
+    'ui-gray': '#777',
+    'mid-gray': '#eee',
+    'mid-gray2': '#bbb',
+    'light-gray': '#f7f7f7',
+    'lighter-gray': '#fafafa',
+    'light-blue': '#e3f0f8',
+    'brand-color-primary': '#002e6d', // one step dark blue
+    'brand-color-secondary': '1ba5ff', // one step light blue
   },
   variables: {
     'border-color': '#000000',
@@ -50,10 +59,9 @@ const modifiedLightTheme = {
 // Composables
 import { createVuetify } from 'vuetify'
 
-// Translations provided by Vuetify
+// Translations for Vuetify UI componenets
 import { en, es, fr } from 'vuetify/locale'
-import t_en from '@/locales/en' // translation file
-
+import en_t from '@/locales/en' // translation file
 
 export default createVuetify({
   theme: {
@@ -64,7 +72,7 @@ export default createVuetify({
   },
   locale: {
     locale: 'en',
-    fallback: 't_en',
+    fallback: 'en_t',
     messages: { en, es, fr },
   },
 })

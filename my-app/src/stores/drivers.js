@@ -14,12 +14,23 @@ export const useDriverStore = defineStore({
     actions: {
         addDriver(newData) {
             if(Object.keys(newData).length){
-                const guid = Math.floor(Math.random() * 1000000000); // simple "guid" for demo
+                // simple "guid" for demo
+                const guid = Math.floor(Math.random() * 1000000000); 
+
+                // fake activity for demo
+                const dataPoints = 10;
+                const dataArray = [];
+                for(let i= 0; i < dataPoints; i++){
+                    dataArray.push(Math.floor(Math.random() * 11));
+                }
+            
                 this.drivers.push({
                     "id": guid,
                     "first_name": newData.first_name,
                     "last_name": newData.last_name,
+                    "full_name": newData.first_name +' '+ newData.last_name,
                     "email": newData.email,
+                    "activity": dataArray
                 });
             }
         },
@@ -48,7 +59,6 @@ export const useDriverStore = defineStore({
         },
         loadDrivers() {
             this.loading = false;
-            // this.drivers = mockData;
             this.drivers = this.drivers.concat(mockData);
             this.driversAvailable = true;
         }

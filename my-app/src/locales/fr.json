@@ -1,21 +1,56 @@
 {
-    "action-add": "Ajouter",
-    "action-delete": "Effacer",
-    "action-update": "Réviser",
-    "action-import": "Importer",
-    "action-export": "Exporter",
-    "action-close": "Fermer",
-    "action-search": "Recherche",
+  "action-add": "Ajouter",
+  "action-delete": "Effacer",
+  "action-update": "Réviser",
+  "action-import": "Importer",
+  "action-export": "Exporter",
+  "action-close": "Fermer",
+  "action-search": "Recherche",
+  "action-edit": "Modifier",
 
-    "action-switch_lang": "Changer de Langue",
-    "action-lang_en": "Anglais",
-    "action-lang_es": "Espagnol",
-    "action-lang_fr": "Français",
+  "action-switch_lang": "Changer de Langue",
+  "action-lang_en": "Anglais",
+  "action-lang_es": "Espagnol",
+  "action-lang_fr": "Français",
 
-    "tooltip-export-msg": "Pas disponible",
-  
-    "assignments-tab-one": "Conducteurs",
-    "assignments-tab-two": "Véhicules",
-  
-    "driver_list-title": "Affectations des Chauffeurs"
+  "tooltip-export-msg": "Pas disponible",
+
+  "assignments-tab-one": "Conducteurs",
+  "assignments-tab-two": "Véhicules",
+
+  "driver_list-title": "Affectations des Chauffeurs",
+
+  "driver_list-loading": "Chargement des pilotes et des affectations...",
+  "driver_list-loading-error": "Erreur lors du chargement des pilotes..",
+  "driver_list-nothing-to-display": "Aucun pilote à afficher",
+
+  "driver_list-items-per-page": "Pilotes par page",
+
+  "driver_list-thead_id": "",
+  "driver_list-thead_fullname": "Nom",
+  "driver_list-thead_lname": "Nom de famille",
+  "driver_list-thead_fname": "Prénom",
+  "driver_list-thead_contact": "Contact",
+  "driver_list-thead_pref_contact": "Préférer",
+  "driver_list-thead_email": "E-mail",
+  "driver_list-thead_phone": "Téléphone",
+  "driver_list-thead_ptype": "Type de téléphone",
+  "driver_list-thead_assigned": "Attribué",
+  "driver_list-thead_activity": "Activité",
+  "driver_list-phone_type_unknown": "inconnu",
+  "driver_list-driver_unassigned": "non attribué",
+
+  "driver_details-label_lname": "Nom de famille",
+  "driver_details-label_fname": "Prénom",
+  "driver_details-label_email": "E-mail",
+  "driver_details-label_phone": "Téléphone",
+  "driver_details-label_ptype": "Type de téléphone",
+  "driver_details-label_assigned": "Attribué",
+
+  "driver_add_dialog-title": "Ajouter un Pilote",
+
+  "vehicle_list-title": "Véhicules disponibles",
+  "vehicles_list-thead_name": "Nom",
+  "vehicles_list-thead_type": "Taper",
+  "vehicles_list-thead_manufacturer": "Fabricant"
 }

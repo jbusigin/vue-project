@@ -1,26 +1,6 @@
 <template>
   <main>
-    <v-container>
-      <v-row>
-        <v-col>
-          <router-link to="/">
-            <v-img class="osg-logo" src="@/assets/onestepgps_color_logotype.svg"/>
-          </router-link>
-        </v-col>
-        <v-spacer/>
-        <v-col align="right">
-          <v-select
-            @update:modelValue="changeLocale"
-            :label="$t('action-switch_lang')"
-            density="compact"
-            :items="lang_select_items"
-            item-title="label"
-            item-value="value"
-            variant="outlined"
-            v-model="lang_select_default"
-          ></v-select>
-        </v-col>
-      </v-row>
+    <v-container fluid>
       <v-row>
         <v-col>
           <v-card>
@@ -32,11 +12,11 @@
               <v-tabs-window v-model="tab">
 
                 <v-tabs-window-item value="tab1">
-                  <DriverList></DriverList>
+                  <DriverList />
                 </v-tabs-window-item>
 
                 <v-tabs-window-item value="tab2">
-                  Vehicles
+                  <VehicleList />
                 </v-tabs-window-item>
 
               </v-tabs-window>
@@ -50,35 +30,33 @@
 
 <script>
   import DriverList from '@/components/DriverList.vue';
+  import VehicleList from '@/components/VehicleList.vue';
 
   export default {
     name: 'assignments',
     data (vm) {
       return {
         tab: null,
-        lang_select_default: {
-          label: vm.$t('action-lang_en'), value: 'en'
-        },
-        lang_select_items: [
-          { label: vm.$t('action-lang_en'), value: 'en'},
-          { label: vm.$t('action-lang_es'), value: 'es'},
-          { label: vm.$t('action-lang_fr'), value: 'fr'}
-        ]
       }
     },
     components: {
-      DriverList
-    },
-    methods: {
-      changeLocale (locale) {
-        this.$vuetify.locale.current = this.$i18n.locale = locale // vuetify ui & app ui elements
-      },
-    },
+      DriverList,
+      VehicleList
+    }
   }
 </script>
 
 <style lang="scss" scoped>
-  .osg-logo {
-    max-width: 200px;
+  .v-container {
+    max-width: 1200px;
   }
+  .v-tab {
+    &[aria-selected="true"] {
+      background-color: rgb(var(--v-theme-anchor));
+    }
+    &:deep(.v-tab__slider) {
+      display: none;
+    }
+  }
+
 </style>
