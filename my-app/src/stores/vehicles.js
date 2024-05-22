@@ -52,9 +52,13 @@ export const useVehicleStore = defineStore({
         loading: false,
         error: null
     }),
-    getters: {},
+    getters: {
+        getAllVehicles: (state) => {
+            return state.vehicles;
+        }
+    },
     actions: {
-        getVehicleByID(id) {
+        getVehicleByID (id) {
             return this.vehicles.find((e) => String(e.id) === String(id));
         }
     }

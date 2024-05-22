@@ -1,9 +1,12 @@
 <template>
+  <AppLoading />
+
   Redirecting in 5 seconds...
   <v-btn to="assignments">Go now</v-btn>
 </template>
 
 <script setup>
+
   import {useRouter} from 'vue-router';
   const router = useRouter();
 

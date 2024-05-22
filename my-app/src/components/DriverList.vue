@@ -109,8 +109,13 @@
       </template>
 
       <template v-slot:item.assignment="{ item }">
-        {{ vehicleStore.getVehicleByID(item.assignment).name /* user data - not translated */ }}
-        {{ vehicleStore.getVehicleByID(item.assignment).type /* user data - not translated */ }}
+        {{ v_Store.getVehicleByID(item.assignment).name /* user data - not translated */ }}
+        <span class="small">{{ v_Store.getVehicleByID(item.assignment).type /* user data - not translated */ }}</span>
+      </template>
+
+      <template v-slot:item.location="{ item }">
+        {{ l_Store.getLocationByID(item.location).name /* user data - not translated */ }}
+        <span class="small">{{ l_Store.getLocationByID(item.location).type /* user data - not translated */ }}</span>
       </template>
 
       <template v-slot:item.activity="{ item }">
@@ -155,9 +160,11 @@
   import { storeToRefs } from 'pinia'
   import { useDriverStore } from '@/stores/drivers'
   import { useVehicleStore } from '@/stores/vehicles'
+  import { useLocationStore } from '@/stores/locations'
   const { drivers, loading, error, driversAvailable } = storeToRefs(useDriverStore())
   const { loadDrivers, addDriver, removeDriver } = useDriverStore()
-  const vehicleStore = useVehicleStore()
+  const v_Store = useVehicleStore()
+  const l_Store = useLocationStore()
 
   console.error('Remove loadDrivers');
   loadDrivers();
@@ -199,13 +206,14 @@
     },
     computed: {
       headers (vm) {
+        // Headers are computed to allow for translations
         return [
-          // Headers are computed to allow for translations
           { key: 'full_name', title: vm.$t('driver_list-thead_fullname'), sortable: false },
           { key: 'last_name', title: vm.$t('driver_list-thead_lname') },
           { key: 'first_name', title: vm.$t('driver_list-thead_fname') },
           { key: 'contact', title: vm.$t('driver_list-thead_contact'), sortable: false },
           { key: 'assignment', title: vm.$t('driver_list-thead_assigned') },
+          { key: 'location', title: vm.$t('driver_list-thead_location') },
           { key: 'activity', title: vm.$t('driver_list-thead_activity'), sortable: false },
           { key: 'action', title: '', value: null, sortable: false },
           { title: '', key: 'data-table-expand' },
@@ -252,9 +260,17 @@
       background-color: rgb(var(--v-theme-lighter-gray));
     }
 
-    &:deep(tr td span.nowrap) {
-      white-space: nowrap;
+    &:deep(tr td span) {
       display: block;
+    }
+
+    &:deep(tr td .nowrap) {
+      white-space: nowrap;
+    }
+
+    &:deep(tr td .small) {
+      font-size: 0.7rem;
+      font-weight: 400;
     }
 
     &:deep(tr td .phone a),
@@ -283,12 +299,12 @@
     .activity-spark {
       height: 15px;
       width: 100%;
-      box-shadow: 0 0 0 1px #ddd;
+      border-left: 1px solid #aaa;
+      border-bottom: 1px solid #aaa;
     }
     .activity-label {
       margin: 4px 0 0 0;
-      font-size: 0.75rem;
-      font-weight: bold;
+      font-size: 0.7rem;
 
       &.activity-indicator- {
         &inactive {

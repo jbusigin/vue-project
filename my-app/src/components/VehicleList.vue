@@ -26,8 +26,8 @@
       :headers="headers"
       :density="isMobile ? 'compact' : 'default'"
       :hide-default-footer="vehicles.length < 10"
-      :items-per-page-text="$t('vehicles_list-items-per-page')"
-      loading-text="{{ $t('vehicles_list-loading') }}"
+      :items-per-page-text="$t('vehicle_list-items-per-page')"
+      loading-text="{{ $t('vehicle_list-loading') }}"
       :fixed-header="true"
       :mobile="isMobile"
     >
@@ -40,28 +40,18 @@
   import { storeToRefs } from 'pinia'
   import { useVehicleStore } from '@/stores/vehicles'
   const { vehicles, loading, error, vehiclesAvailable } = storeToRefs(useVehicleStore())
-  const { loadVehicles, addVehicle, removeVehicle } = useVehicleStore()
-
-//   console.error('Remove loadVehicles');
-//   loadVehicles();
-
 </script>
 <script>
   export default {
     name: 'VehicleList',
-    data () {
-      return {
-
-      }
-    },
+    data () {},
     computed: {
       headers (vm) {
+        // Headers are computed to allow for translations
         return [
-          // Headers are computed to allow for translations
-          { key: 'name', title: vm.$t('vehicles_list-thead_name') },
-          { key: 'type', title: vm.$t('vehicles_list-thead_type') },
-          { key: 'manufacturer', title: vm.$t('vehicles_list-thead_manufacturer') },
-          { key: 'action', title: '', value: null, sortable: false },
+          { key: 'name', title: vm.$t('vehicle_list-thead_name') },
+          { key: 'type', title: vm.$t('vehicle_list-thead_type') },
+          { key: 'manufacturer', title: vm.$t('vehicle_list-thead_manufacturer') },
         ]
       },
       isMobile (vm) {

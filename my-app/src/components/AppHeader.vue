@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar elevation="0" color="transparent">
+  <v-app-bar elevation="0" color="transparent" v-if="currentRoute !== '/'">
     <v-row align="center">
       <v-col class="px-7">
 
@@ -38,13 +38,16 @@
       }
     },
     computed: {
-      // Options are computed to allow for translations
       lang_select_items (vm) {
+        // Options are computed to allow for translations
         return [
           { label: vm.$t('action-lang_en'), value: 'en'},
           { label: vm.$t('action-lang_es'), value: 'es'},
           { label: vm.$t('action-lang_fr'), value: 'fr'}
         ]
+      },
+      currentRoute() {
+        return this.$route.name
       }
     },
     methods: {

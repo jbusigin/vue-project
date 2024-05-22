@@ -7,6 +7,7 @@
         "phone": "(805) 555-1111",
         "prefer_contact": "email",
         "assignment": "2",
+        "location": "1",
         "activity": [1, 2, 1, 4, 0, 3, 3, 9, 6, 0]
     },
     {
@@ -17,6 +18,7 @@
         "phone": "(818) 777-5555",
         "prefer_contact": "phone",
         "assignment": "4",
+        "location": "6",
         "activity": [3, 10, 7, 8, 0, 10, 0, 2, 8, 2]
     },
     {
@@ -27,6 +29,7 @@
         "phone": "(213) 444-3232",
         "prefer_contact": "phone",
         "assignment": "6",
+        "location": "3",
         "activity": [0, 1, 2, 2, 3, 1, 0, 0, 0, 0]
     },
     {
@@ -37,6 +40,7 @@
         "phone": "(805) 555-1111",
         "prefer_contact": "email",
         "assignment": "1",
+        "location": "2",
         "activity": [2, 3, 2, 8, 1, 5, 8, 0, 0, 10]
     },
     {
@@ -47,6 +51,7 @@
         "phone": "+52 22 8888-5555",
         "prefer_contact": "phone",
         "assignment": "5",
+        "location": "7",
         "activity": [4, 5, 2, 5, 5, 7, 8, 0, 7, 0]
     }
 ]

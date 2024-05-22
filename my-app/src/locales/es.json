@@ -5,8 +5,11 @@
   "action-import": "Importar",
   "action-export": "Exportar",
   "action-close": "Cerrar",
+  "action-cancel": "Cancelar",
+  "action-save": "Ahorrar",
   "action-search": "Buscar",
   "action-edit": "Editar",
+  "action-goto-map": "Ir al Mapa",
 
   "action-switch_lang": "Cambiar Idioma",
   "action-lang_en": "Inglés",
@@ -17,6 +20,7 @@
   
   "assignments-tab-one": "Conductores",
   "assignments-tab-two": "Vehículos",
+  "assignments-tab-three": "Ubicaciones",
   
   "driver_list-title": "Asignaciones de Conductores",
 
@@ -37,6 +41,7 @@
   "driver_list-thead_ptype": "Teléfono",
   "driver_list-thead_assigned": "Asignado",
   "driver_list-thead_activity": "Actividad",
+  "driver_list-thead_location": "Ubicación",
   "driver_list-phone_type_unknown": "desconocido",
   "driver_list-driver_unassigned": "no asignado",
 
@@ -48,9 +53,30 @@
   "driver_details-label_assigned": "Asignado",
 
   "driver_add_dialog-title": "Agregar Controlador",
+  "driver_add_section-driver": "Detalles Personales",
+  "driver_add_section-assignments": "Asignaciones",
+
+  "driver_add-field_fname": "Nombre de pila",
+  "driver_add-field_lname": "Apellido",
+  "driver_add-field_phone": "Teléfono",
+  "driver_add-field_email": "Correo electrónico",
+  "driver_add-field_prefered_contact": "Principal",
+  "driver_add-field_location": "Ubicación",
+  "driver_add-field_vehicle": "Vehículo Asignado",
+  "driver_add-required_message": "indica campo requerido",
 
   "vehicle_list-title": "Vehículos disponibles",
-  "vehicles_list-thead_name": "Nombre",
-  "vehicles_list-thead_type": "Tipo",
-  "vehicles_list-thead_manufacturer": "Fabricante"
+  "vehicle_list-thead_name": "Nombre",
+  "vehicle_list-thead_type": "Tipo",
+  "vehicle_list-thead_manufacturer": "Fabricante",
+  "vehicle_list-thead_plate": "Placa",
+  "vehicle_list-thead_locator_serial": "Localizador GPS",
+
+  "location_list-title": "Ubicaciones de las Instalaciones",
+  "location_list-thead_name": "Nombre",
+  "location_list-thead_type": "Tipo",
+  "location_list-thead_map": "Mapa",
+  "location_list-thead_city": "Ciudad",
+  "location_list-thead_state": "Estado",
+  "location_list-thead_location": "Ubicación"
 }

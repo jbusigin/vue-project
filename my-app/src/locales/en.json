@@ -5,8 +5,11 @@
   "action-import": "Import",
   "action-export": "Export",
   "action-close": "Close",
+  "action-cancel": "Cancel",
+  "action-save": "Save",
   "action-search": "Search",
   "action-edit": "Edit",
+  "action-goto-map": "Go to Map",
   
   "action-switch_lang": "Switch Language",
   "action-lang_en": "English",
@@ -17,6 +20,7 @@
   
   "assignments-tab-one": "Drivers",
   "assignments-tab-two": "Vehicles",
+  "assignments-tab-three": "Locations",
 
   "driver_list-title": "Driver Assignments",
 
@@ -37,6 +41,7 @@
   "driver_list-thead_ptype": "Phone Type",
   "driver_list-thead_assigned": "Assigned",
   "driver_list-thead_activity": "Activity",
+  "driver_list-thead_location": "Location",
   "driver_list-phone_type_unknown": "unknown",
   "driver_list-driver_unassigned": "unassigned",
 
@@ -48,9 +53,30 @@
   "driver_details-label_assigned": "Assigned",
 
   "driver_add_dialog-title": "Add Driver",
+  "driver_add_section-driver": "Personal Details",
+  "driver_add_section-assignments": "Assignments",
+
+  "driver_add-field_fname": "First Name",
+  "driver_add-field_lname": "Last Name",
+  "driver_add-field_phone": "Phone",
+  "driver_add-field_email": "Email",
+  "driver_add-field_prefered_contact": "Prefered",
+  "driver_add-field_location": "Location",
+  "driver_add-field_vehicle": "Assigned Vehicle",
+  "driver_add-required_message": "indicates required field",
 
   "vehicle_list-title": "Vehicles Available",
-  "vehicles_list-thead_name": "Name",
-  "vehicles_list-thead_type": "Type",
-  "vehicles_list-thead_manufacturer": "Manufacturer"
+  "vehicle_list-thead_name": "Name",
+  "vehicle_list-thead_type": "Type",
+  "vehicle_list-thead_manufacturer": "Manufacturer",
+  "vehicle_list-thead_plate": "Plate",
+  "vehicle_list-thead_locator_serial": "GPS Locator",
+
+  "location_list-title": "Facility Locations",
+  "location_list-thead_name": "Name",
+  "location_list-thead_type": "Type",
+  "location_list-thead_map": "Map",
+  "location_list-thead_city": "City",
+  "location_list-thead_state": "State",
+  "location_list-thead_location": "Location"
 }

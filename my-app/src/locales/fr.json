@@ -5,8 +5,11 @@
   "action-import": "Importer",
   "action-export": "Exporter",
   "action-close": "Fermer",
+  "action-cancel": "Annuler",
+  "action-save": "Sauver",
   "action-search": "Recherche",
   "action-edit": "Modifier",
+  "action-goto-map": "Aller à la Carte",
 
   "action-switch_lang": "Changer de Langue",
   "action-lang_en": "Anglais",
@@ -17,6 +20,7 @@
 
   "assignments-tab-one": "Conducteurs",
   "assignments-tab-two": "Véhicules",
+  "assignments-tab-three": "Emplacements",
 
   "driver_list-title": "Affectations des Chauffeurs",
 
@@ -37,6 +41,7 @@
   "driver_list-thead_ptype": "Type de téléphone",
   "driver_list-thead_assigned": "Attribué",
   "driver_list-thead_activity": "Activité",
+  "driver_list-thead_location": "Emplacement",
   "driver_list-phone_type_unknown": "inconnu",
   "driver_list-driver_unassigned": "non attribué",
 
@@ -48,9 +53,30 @@
   "driver_details-label_assigned": "Attribué",
 
   "driver_add_dialog-title": "Ajouter un Pilote",
+  "driver_add_section-driver": "Détails Personnels",
+  "driver_add_section-assignments": "Allocation",
+
+  "driver_add-field_fname": "Prénom",
+  "driver_add-field_lname": "Nom de famille",
+  "driver_add-field_phone": "Téléphone",
+  "driver_add-field_email": "E-mail",
+  "driver_add-field_prefered_contact": "Préféré",
+  "driver_add-field_location": "Emplacement",
+  "driver_add-field_vehicle": "Véhicule Attribué",
+  "driver_add-required_message": "indique un champ obligatoire",
 
   "vehicle_list-title": "Véhicules disponibles",
-  "vehicles_list-thead_name": "Nom",
-  "vehicles_list-thead_type": "Taper",
-  "vehicles_list-thead_manufacturer": "Fabricant"
+  "vehicle_list-thead_name": "Nom",
+  "vehicle_list-thead_type": "Taper",
+  "vehicle_list-thead_manufacturer": "Fabricant",
+  "vehicle_list-thead_plate": "Plaque d'Immatriculation",
+  "vehicle_list-thead_locator_serial": "Localisateur GPS",
+
+  "location_list-title": "Emplacements des Installations",
+  "location_list-thead_name": "Nom",
+  "location_list-thead_type": "Taper",
+  "location_list-thead_map": "Carte",
+  "location_list-thead_city": "Ville",
+  "location_list-thead_state": "État",
+  "location_list-thead_location": "Emplacement"
 }
