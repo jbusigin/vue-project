@@ -53,5 +53,104 @@
         "assignment": "5",
         "location": "7",
         "activity": [4, 5, 2, 5, 5, 7, 8, 0, 7, 0]
+    },
+    {
+        "id": "96299234301",
+        "last_name": "Jimson",
+        "first_name": "Jimmy",
+        "email": "jimmy@email.com",
+        "phone": "(805) 555-1111",
+        "prefer_contact": "email",
+        "assignment": "2",
+        "location": "1",
+        "activity": [1, 2, 1, 4, 0, 3, 3, 9, 6, 0]
+    },
+    {
+        "id": "826046534353",
+        "last_name": "Lukason",
+        "first_name": "Luke",
+        "email": "l.lukason@email.com",
+        "phone": "(818) 777-5555",
+        "prefer_contact": "phone",
+        "assignment": "4",
+        "location": "6",
+        "activity": [3, 10, 7, 8, 0, 10, 0, 2, 8, 2]
+    },
+    {
+        "id": "6685654499",
+        "last_name": "Carason",
+        "first_name": "Cara",
+        "email": "cara@email.com",
+        "phone": "(213) 444-3232",
+        "prefer_contact": "phone",
+        "assignment": "6",
+        "location": "3",
+        "activity": [0, 1, 2, 2, 3, 1, 0, 0, 0, 0]
+    },
+    {
+        "id": "184564190314",
+        "last_name": "Bobson",
+        "first_name": "Bobby",
+        "email": "bobby@email.com",
+        "phone": "(805) 555-1111",
+        "prefer_contact": "email",
+        "assignment": "1",
+        "location": "2",
+        "activity": [2, 3, 2, 8, 1, 5, 8, 0, 0, 10]
+    },
+    {
+        "id": "2064398824",
+        "last_name": "Gonzalez",
+        "first_name": "Carlos",
+        "email": "cgonz@email.mx",
+        "phone": "+52 22 8888-5555",
+        "prefer_contact": "phone",
+        "assignment": "5",
+        "location": "7",
+        "activity": [4, 5, 2, 5, 5, 7, 8, 0, 7, 0]
+    },
+    {
+        "id": "9629953601",
+        "last_name": "Davidson",
+        "first_name": "Davey",
+        "email": "d.davidson@email.com",
+        "phone": "(805) 555-1111",
+        "prefer_contact": "email",
+        "assignment": "2",
+        "location": "1",
+        "activity": [1, 2, 1, 4, 0, 3, 3, 9, 6, 0]
+    },
+    {
+        "id": "82634020353",
+        "last_name": "Paulson",
+        "first_name": "Paul",
+        "email": "ppaull@email.com",
+        "phone": "(818) 777-5555",
+        "prefer_contact": "phone",
+        "assignment": "4",
+        "location": "6",
+        "activity": [3, 10, 7, 8, 0, 10, 0, 2, 8, 2]
+    },
+    {
+        "id": "66854946699",
+        "last_name": "Jillson",
+        "first_name": "Jill",
+        "email": "jjillson@email.com",
+        "phone": "(213) 444-3232",
+        "prefer_contact": "phone",
+        "assignment": "6",
+        "location": "3",
+        "activity": [0, 1, 2, 2, 3, 1, 0, 0, 0, 0]
+    },
+    {
+        "id": "18425190314",
+        "last_name": "Samson",
+        "first_name": "Sammy",
+        "email": "sammy@email.com",
+        "phone": "(805) 555-1111",
+        "prefer_contact": "email",
+        "assignment": "1",
+        "location": "2",
+        "activity": [2, 3, 2, 8, 1, 5, 8, 0, 0, 10]
     }
 ]

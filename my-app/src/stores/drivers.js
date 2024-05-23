@@ -47,7 +47,9 @@ export const useDriverStore = defineStore({
         },
         loadDrivers() {
             this.loading = false;
-            this.drivers = this.drivers.concat(mockData);
+            if(!Object.keys(this.drivers).length){
+                this.drivers = this.drivers.concat(mockData);
+            }
             this.driversAvailable = true;
         }
     }
