@@ -5,43 +5,43 @@ export const useVehicleStore = defineStore({
     state: () => ({
         vehicles: [
             {
-                "id": 1,
+                "id": "1",
                 "name": "Clark A13 Forklift",
                 "type": "Forklift",
                 "manufacturer": "Clark"
             },
             {
-                "id": 2,
+                "id": "2",
                 "name": "Toyota ForkMaster",
                 "type": "Forklift",
                 "manufacturer": "Toyota"
             },
             {
-                "id": 3,
+                "id": "3",
                 "name": "Cat T5 Forklift",
                 "type": "Forklift",
                 "manufacturer": "Cat"
             },
             {
-                "id": 4,
+                "id": "4",
                 "name": "Cart 1",
                 "type": "Golf Cart",
                 "manufacturer": "Yuanhai"
             },
             {
-                "id": 5,
+                "id": "5",
                 "name": "Cart 2",
                 "type": "Golf Cart",
                 "manufacturer": "Yuanhai"
             },
             {
-                "id": 6,
+                "id": "6",
                 "name": "Toyo-Ace Truck",
                 "type": "Light Truck",
                 "manufacturer": "Toyo"
             },
             {
-                "id": 7,
+                "id": "7",
                 "name": "Toyota Light Truck w/ Tailgate",
                 "type": "Light Truck",
                 "manufacturer": "Toyota"

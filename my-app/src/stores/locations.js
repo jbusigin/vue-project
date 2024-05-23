@@ -5,7 +5,7 @@ export const useLocationStore = defineStore({
     state: () => ({
         locations: [
             {
-                "id": 1,
+                "id": "1",
                 "name": "Greenwood Shipping Center",
                 "type": "Warehouse",
                 "map": "",
@@ -13,7 +13,7 @@ export const useLocationStore = defineStore({
                 "state": "WA"
             },
             {
-                "id": 2,
+                "id": "2",
                 "name": "Container Storage",
                 "type": "Yard",
                 "map": "",
@@ -21,7 +21,7 @@ export const useLocationStore = defineStore({
                 "state": "CA"
             },
             {
-                "id": 3,
+                "id": "3",
                 "name": "Municipal Airport",
                 "type": "Airport",
                 "map": "",
@@ -29,7 +29,7 @@ export const useLocationStore = defineStore({
                 "state": "CO"
             },
             {
-                "id": 4,
+                "id": "4",
                 "name": "Redrock Warehouse",
                 "type": "Warehouse",
                 "map": "",
@@ -37,7 +37,7 @@ export const useLocationStore = defineStore({
                 "state": "AZ"
             },
             {
-                "id": 5,
+                "id": "5",
                 "name": "Pacific Studios",
                 "type": "Campus",
                 "map": "",
@@ -45,7 +45,7 @@ export const useLocationStore = defineStore({
                 "state": "CA"
             },
             {
-                "id": 6,
+                "id": "6",
                 "name": "City University",
                 "type": "Campus",
                 "map": "",
@@ -53,7 +53,7 @@ export const useLocationStore = defineStore({
                 "state": "CA"
             },
             {
-                "id": 7,
+                "id": "7",
                 "name": "Operations Logistics",
                 "type": "Warehouse",
                 "map": "",

@@ -100,7 +100,7 @@
                   item-value="id"
                   :label="$t('driver_add-field_location')"
                   variant="outlined"
-                  v-model="defaultLocation"
+                  v-model="dataLocation"
                   :density="isMobile ? 'compact' : 'default'"
                 ></v-select>
 
@@ -113,7 +113,7 @@
                   item-value="id"
                   :label="$t('driver_add-field_vehicle')"
                   variant="outlined"
-                  v-model="defaultAssignment"
+                  v-model="dataAssignment"
                   :density="isMobile ? 'compact' : 'default'"
                 ></v-select>
 
@@ -187,11 +187,11 @@
           assignment: this.driverData.assignment,
           activity: this.driverData.activity,
         },
-        defaultAssignment: {
+        dataAssignment: {
           id: this.driverData.assignment,
           name: this.getVehicleByID(this.driverData.assignment).name,
         },
-        defaultLocation: {
+        dataLocation: {
           id: this.driverData.location,
           name: this.getLocationByID(this.driverData.location).name,
         },
@@ -215,6 +215,16 @@
       async submitForm(){
         const isVaild = await this.$refs.form.validate();
         if(isVaild.valid){
+          if(typeof this.dataAssignment === 'object' && this.dataAssignment !== null){
+            this.fieldData.assignment = this.dataAssignment.id;
+          }else{
+            this.fieldData.assignment = this.dataAssignment;
+          }
+          if(typeof this.dataLocation === 'object' && this.dataLocation !== null){
+            this.fieldData.location = this.dataLocation.id;
+          }else{
+            this.fieldData.location = this.dataLocation;
+          }
           await this.updateDriver(this.fieldData);
           this.dialog = false;
         }
