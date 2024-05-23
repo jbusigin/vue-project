@@ -48,10 +48,17 @@ export const useDriverStore = defineStore({
         },
         loadDrivers() {
             this.loading = false;
-            if(!Object.keys(this.drivers).length){
+
+            const testKey = '66854946699';
+            let testData = (this.drivers).find(function(e, idx) {
+                return String(e.id) === String(testKey)
+            });
+
+            if(!testData) {
                 this.drivers = this.drivers.concat(mockData);
+                this.driversAvailable = true;
             }
-            this.driversAvailable = true;
+
         }
     }
 })
