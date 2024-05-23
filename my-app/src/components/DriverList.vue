@@ -37,7 +37,9 @@
               <v-tooltip
                 activator="parent"
                 location="top"
-                >{{ $t('tooltip-export-msg') }}</v-tooltip>
+              >
+                {{ $t('tooltip-export-msg') }}
+              </v-tooltip>
             </v-btn>
             <v-spacer />
           </v-toolbar>
@@ -59,10 +61,8 @@
       :hide-default-footer="drivers.length <= 10"
       :items-per-page-text="$t('driver_list-items-per-page')"
       loading-text="{{ $t('driver_list-loading') }}"
-      v-model:expanded="expanded"
       :fixed-header="true"
       :mobile="isMobile"
-      show-expand
     >
 
       <template v-slot:top>
@@ -87,32 +87,16 @@
 
       <template v-slot:item.contact="{ item }">
         <span class="nowrap phone">
-          <v-icon
-            :icon="item.prefer_contact === 'phone' ? 'mdi-check-circle' : 'mdi-checkbox-blank-circle-outline'"
-            :color="item.prefer_contact === 'phone' ? 'anchor' : 'mid-gray2'"
-            size="x-small"
-          /> &nbsp;
-          <a :href="'tel:' + item.phone">{{ item.phone }}</a>
+          <a :href="'tel:' + item.phone" :style="item.prefer_contact === 'phone' ? 'font-weight: 700;' : ''">{{ item.phone }}</a>
         </span>
         <span class="nowrap email">
-          <v-icon
-            :icon="item.prefer_contact === 'email' ? 'mdi-check-circle' : 'mdi-checkbox-blank-circle-outline'"
-            :color="item.prefer_contact === 'email' ? 'anchor' : 'mid-gray2'"
-            size="x-small"
-          /> &nbsp;
-          <a :href="'mailto:' + item.email">{{ item.email }}</a>
+          <a :href="'mailto:' + item.email" :style="item.prefer_contact === 'email' ? 'font-weight: 700;' : ''">{{ item.email }}</a>
         </span>
-      </template>
-
-      <template v-slot:item.phone_type="{ item }">
-        {{ item.phone_type ? item.phone_type : $t('driver_list-phone_type_unknown') }}
       </template>
 
       <template v-slot:item.assignment="{ item }">
-        
         {{ item.assignment ? v_Store.getVehicleByID(item.assignment).name : '--' /* user data - not translated */ }}
         <span class="small">{{ item.assignment ? v_Store.getVehicleByID(item.assignment).type : '' /* user data - not translated */ }}</span>
-      
       </template>
 
       <template v-slot:item.location="{ item }">
@@ -121,20 +105,23 @@
       </template>
 
       <template v-slot:item.activity="{ item }">
-        <v-sparkline
-          class="activity-spark"
-          :auto-line-width="sparkline.autoLineWidth"
-          :fill="sparkline.fill"
-          :line-width="sparkline.width"
-          :model-value="item.activity"
-          :padding="sparkline.padding"
-          :smooth="sparkline.smoothing"
-          :stroke-linecap="sparkline.lineCap"
-          :type="sparkline.type"
-          auto-draw
-        ></v-sparkline>
-        <div class="activity-label" :class="'activity-indicator-' + activityStatus(item.activity).toLowerCase() ">
-          {{ activityStatus(item.activity) }}
+        <div class="activity-spark">
+          <v-sparkline
+            class="activity-svg"
+            auto-line-width
+            fill="fill"
+            line-width="0"
+            :model-value="item.activity"
+            padding="5"
+            smooth
+            stroke-linecap="round"
+            type="trend"
+            color="#bbb"
+          ></v-sparkline>
+        </div>
+        <div class="activity-label">
+          {{ $t('driver_list-thead_activity') }}:
+          <v-icon v-for="n in activityStatus(item.activity)" icon="mdi-square" size="x-small" :class="'activity-indicator-' + activityStatus(item.activity)"></v-icon>
         </div>
       </template>
 
@@ -142,14 +129,6 @@
         <div class="d-flex justify-end">
           <DriverDetails :driverData="item"/>
         </div>
-      </template>
-
-      <template v-slot:expanded-row="{ columns, item }">
-        <tr class="expanded-row">
-          <td :colspan="columns.length">
-            More info about {{ item.name }}
-          </td>
-        </tr>
       </template>
 
     </v-data-table>
@@ -176,29 +155,18 @@
     name: 'DriverList',
     data () {
       return {
-        search: '',
-        expanded: [],
-        sparkline: {
-          width: 3,
-          radius: 10,
-          padding: 8,
-          lineCap: 'round',
-          smoothing: false,
-          fill: false,
-          type: 'trend',
-          autoLineWidth: false,
-        }
+        search: ''
       }
     },
     methods: {
       activityStatus (arr) {
         const level = arr.reduce((partialSum, a) => partialSum + a, 0);
         if(level >= 50){
-          return 'High';
+          return 3;
         } else if(level >= 30) {
-          return 'Low';
+          return 2;
         } else {
-          return 'Inactive';
+          return 1;
         }
       }
     },
@@ -214,7 +182,6 @@
           { key: 'location', title: vm.$t('driver_list-thead_location') },
           { key: 'activity', title: vm.$t('driver_list-thead_activity'), sortable: false },
           { key: 'action', title: '', value: null, sortable: false },
-          { title: '', key: 'data-table-expand' },
         ]
       },
       isMobile (vm) {
@@ -252,6 +219,10 @@
   }
 
   .driver-list-table {
+    &:deep(th span) {
+      white-space: nowrap;
+    }
+
     &:deep(tr:nth-of-type(odd) td) {
       background-color: rgb(var(--v-theme-lighter-gray));
     }
@@ -277,9 +248,7 @@
     }
 
     &:deep(tr:not(.expanded-row) th:first-child),
-    &:deep(tr:not(.expanded-row) td:first-child),
-    &:deep(tr:not(.expanded-row) th:last-child),
-    &:deep(tr:not(.expanded-row) td:last-child) { // hide first -and- last for !isMobile
+    &:deep(tr:not(.expanded-row) td:first-child) { // hide first for !isMobile
       border: 0;
       clip: rect(0 0 0 0);
       height: 1px;
@@ -293,24 +262,25 @@
     }
 
     .activity-spark {
-      height: 15px;
-      width: 100%;
-      border-left: 1px solid #aaa;
-      border-bottom: 1px solid #aaa;
+      border: 1px solid #eaeaea;
+      border-radius: 1px;
+      padding: 0px;
+      background: #fff;
     }
     .activity-label {
-      margin: 4px 0 0 0;
+      margin: 0;
       font-size: 0.7rem;
+      white-space: nowrap;
 
-      &.activity-indicator- {
-        &inactive {
-          color: gray;
+      .activity-indicator- {
+        &1 {
+          color: #edaa53;
         }
-        &high {
-          color: green;
+        &2 {
+          color: #5a8eee;
         }
-        &low {
-          color: red;
+        &3 {
+          color: #1fbe1f;
         }
       }
     }
@@ -339,9 +309,7 @@
       }
 
       &:deep(tr:not(.expanded-row) th:first-child),
-      &:deep(tr:not(.expanded-row) td:first-child),
-      &:deep(tr:not(.expanded-row) th:last-child),
-      &:deep(tr:not(.expanded-row) td:last-child)  { // show first -and- last
+      &:deep(tr:not(.expanded-row) td:first-child) { // show first 
         border: inherit;
         clip: unset;
         height: auto;
@@ -368,6 +336,17 @@
       &:deep(tr td span.email a) {
         font-size: 0.875rem;
       }
+
+      &:deep(.v-data-table__tr--mobile .v-data-table__td) {
+        grid-template-columns: 30% 70%;
+        height: auto;
+        padding-bottom: 15px;
+      }
+
+      &:deep(.v-data-table__tr--mobile .v-data-table__td-value) {
+        text-align: left;
+      }
+
     }
 
   }

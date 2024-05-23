@@ -65,4 +65,22 @@
 </script>
 
 <style lang="scss" scoped>
+
+    .location-list-table {
+      &:deep(tr:nth-of-type(odd) td) {
+        background-color: rgb(var(--v-theme-lighter-gray));
+      }
+      @media screen and (max-width: 959px) {
+        &:deep(.v-data-table__tr--mobile .v-data-table__td) {
+          grid-template-columns: 30% 70%;
+          height: auto;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+        &:deep(.v-data-table__tr--mobile .v-data-table__td-value) {
+          text-align: left;
+        }
+      }
+    }
+
 </style>

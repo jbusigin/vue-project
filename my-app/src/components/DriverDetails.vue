@@ -7,11 +7,13 @@
     <template v-slot:activator="{ props: activatorProps }">
       <v-btn
         prepend-icon="mdi-pencil"
-        :text="$t('action-edit')"
+        :stacked="isMobile"
         v-bind="activatorProps"
+        :size="isMobile ? 'x-small' : 'small'"
         variant="text"
-        size="small"
-      ></v-btn>
+      >
+        {{ $t('action-edit') }}
+      </v-btn>
     </template>
 
     <v-form ref="form" lazy-validation v-model="valid">
@@ -125,11 +127,17 @@
         <v-divider></v-divider>
 
         <v-card-actions>
+          <v-btn
+            :text="$t('action-delete')"
+            variant="plain"
+            @click="deleteDriver"
+          ></v-btn>
+
           <v-spacer></v-spacer>
 
           <v-btn
             :text="$t('action-cancel')"
-            variant="plain"
+            variant="text"
             @click="dialog = false"
           ></v-btn>
 
@@ -201,7 +209,7 @@
       }
     },
     methods: {
-      ...mapActions(useDriverStore, ['updateDriver']),
+      ...mapActions(useDriverStore, ['updateDriver', 'removeDriver']),
       ...mapActions(useVehicleStore, ['getVehicleByID']),
       ...mapActions(useLocationStore, ['getLocationByID']),
       async submitForm(){
@@ -210,6 +218,10 @@
           await this.updateDriver(this.fieldData);
           this.dialog = false;
         }
+      },
+      deleteDriver(){
+        this.removeDriver(this.driverData.id);
+        this.dialog = false;
       },
       resetModel() {
         this.fieldData = {
@@ -226,6 +238,9 @@
       }
     },
     computed: {
+      ...mapState(useDriverStore, ['name']),
+      ...mapState(useVehicleStore, ['name']),
+      ...mapState(useLocationStore, ['name']),
       isMobile (vm) {
         return vm.$vuetify.display.smAndDown
       }
