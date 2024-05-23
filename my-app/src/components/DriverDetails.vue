@@ -127,11 +127,40 @@
         <v-divider></v-divider>
 
         <v-card-actions>
-          <v-btn
-            :text="$t('action-delete')"
-            variant="plain"
-            @click="deleteDriver"
-          ></v-btn>
+
+          <v-dialog max-width="500">
+            <template v-slot:activator="{ props: activatorConfirm }">
+              <v-btn
+                v-bind="activatorConfirm"
+                :text="$t('action-delete')"
+                variant="plain"
+              ></v-btn>
+            </template>
+
+            <template v-slot:default="{ isActive }">
+              <v-card :title="$t('delete_dialog-title')">
+                <v-card-text>
+                  {{ $t('delete_dialog-confirmation') }}
+                </v-card-text>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn
+                    :text="$t('action-cancel')"
+                    @click="isActive.value = false"
+                  ></v-btn>
+
+                  <v-btn
+                    variant="flat"
+                    color="red"
+                    :text="$t('action-delete')"
+                    @click="deleteDriver"
+                  ></v-btn>
+
+                </v-card-actions>
+              </v-card>
+            </template>
+          </v-dialog>
 
           <v-spacer></v-spacer>
 
@@ -231,6 +260,7 @@
       },
       deleteDriver(){
         this.removeDriver(this.driverData.id);
+        this.isActive = false;
         this.dialog = false;
       },
       resetModel() {

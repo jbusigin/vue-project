@@ -16,6 +16,9 @@
   "action-lang_es": "Spanish",
   "action-lang_fr": "French",
 
+  "delete_dialog-title": "Confirm",
+  "delete_dialog-confirmation": "Are you sure you would like to remove this driver?",
+
   "validation-name_required": "Name is required",
   "validation-phone_required": "Phone is required",
   "validation-email_required": "Email is required",

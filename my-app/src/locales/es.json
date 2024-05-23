@@ -15,6 +15,9 @@
   "action-lang_en": "Inglés",
   "action-lang_es": "Español",
   "action-lang_fr": "Francés",
+
+  "delete_dialog-title": "Confirmar",
+  "delete_dialog-confirmation": "¿Está seguro de que desea eliminar este controlador?",
   
   "validation-name_required": "Se requiere el nombre",
   "validation-phone_required": "Se requiere teléfono",

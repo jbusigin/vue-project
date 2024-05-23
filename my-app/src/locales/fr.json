@@ -16,6 +16,9 @@
   "action-lang_es": "Espagnol",
   "action-lang_fr": "Français",
 
+  "delete_dialog-title": "Confirmer",
+  "delete_dialog-confirmation": "Êtes-vous sûr de vouloir supprimer ce pilote ?",
+
   "validation-name_required": "Le nom est requis",
   "validation-phone_required": "Le téléphone est requis",
   "validation-email_required": "L'e-mail est requis",
