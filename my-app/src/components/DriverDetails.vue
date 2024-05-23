@@ -189,11 +189,11 @@
         },
         dataAssignment: {
           id: this.driverData.assignment,
-          name: this.getVehicleByID(this.driverData.assignment).name,
+          name: this.driverData.assignment !== '' ? this.getVehicleByID(this.driverData.assignment).name : '',
         },
         dataLocation: {
           id: this.driverData.location,
-          name: this.getLocationByID(this.driverData.location).name,
+          name: this.driverData.location !== '' ? this.getLocationByID(this.driverData.location).name : '',
         },
         nameValidation: [
           (v) => !!v || vm.$t('validation-name_required'),

@@ -15,7 +15,7 @@ export const useDriverStore = defineStore({
         addDriver(newData) {
             if(Object.keys(newData).length){
                 // simple "guid" for demo
-                newData.guid = Math.floor(Math.random() * 1000000000); 
+                newData.guid = String(Math.floor(Math.random() * 1000000000)); 
                 
                 // fake activity for demo
                 const dataPoints = 10;
@@ -25,6 +25,7 @@ export const useDriverStore = defineStore({
                 }
             
                 this.drivers.push(newData);
+                this.driversAvailable = true;
             }
         },
         removeDriver(id) {

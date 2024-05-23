@@ -95,12 +95,12 @@
       </template>
 
       <template v-slot:item.assignment="{ item }">
-        {{ item.assignment ? v_Store.getVehicleByID(item.assignment).name : '--' /* user data - not translated */ }}
+        {{ item.assignment !== '' ? v_Store.getVehicleByID(item.assignment).name : '--' /* user data - not translated */ }}
         <span class="small">{{ item.assignment ? v_Store.getVehicleByID(item.assignment).type : '' /* user data - not translated */ }}</span>
       </template>
 
       <template v-slot:item.location="{ item }">
-        {{ item.location ? l_Store.getLocationByID(item.location).name : '--' /* user data - not translated */ }}
+        {{ item.location !== '' ? l_Store.getLocationByID(item.location).name : '--' /* user data - not translated */ }}
         <span class="small">{{ item.location ? l_Store.getLocationByID(item.location).type : '' /* user data - not translated */ }}</span>
       </template>
 
